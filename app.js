@@ -6,8 +6,11 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 // router
-const indexRouter = require("./routes/index");
+const homeRouter = require("./routes/home");
 const usersRouter = require("./routes/users");
+const loginRouter = require("./routes/login");
+const membershipRouter = require("./routes/membership");
+const mainRouter = require("./routes/main");
 
 // app
 const app = express();
@@ -27,8 +30,11 @@ app.use(express.static(path.join(__dirname, "public")));
 // 경로
 
 // 홈페이지
-app.use("/", indexRouter);
+app.use("/", homeRouter);
 app.use("/users", usersRouter);
+app.use("/login", loginRouter);
+app.use("/membership", membershipRouter);
+app.use("/main", mainRouter);
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 

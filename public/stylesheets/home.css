@@ -18,7 +18,7 @@
 }
 
 .container .header {
-  width: 80%;
+  width: 70%;
   height: 80px;
   margin: 0 auto;
   display: flex;
@@ -29,7 +29,7 @@
 .container .header h1 a {
   text-decoration: none;
   color: white;
-  font-family: abster;
+  /* font-family: abster; */
 }
 
 .container .nav ul li {
@@ -58,25 +58,27 @@
 
 .container .hero h2 {
   font-size: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .container .hero p {
   font-size: 20px;
+  margin-bottom: 30px;
 }
 
-.container .hero input {
+.container .hero a {
   background: none;
   border: 2px solid white;
   color: white;
   padding: 15px 20px;
   border-radius: 20px;
-  margin-top: 30px;
+  /* margin-top: 50px; */
   outline: none;
   cursor: pointer;
   transition: all 0.4s;
+  text-decoration: none;
 }
 
-.container .hero input:hover {
+.container .hero a:hover {
   background-color: rgb(22, 107, 164, 0.5);
 }
