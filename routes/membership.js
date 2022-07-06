@@ -5,11 +5,10 @@ router.get("/", function (req, res, next) {
   res.render("membership", { title: "membership" });
 });
 
-router.get("/plan", function (req, res, next) {
-  res.render("plan", { title: "plan" });
+router.post("/setting", function (req, res, next) {
+  res.render("setting", { title: "plan" });
 });
-
-router.get("/create_tutorial", function (req, res, next) {
+router.post("/tutorial", function (req, res, next) {
   res.render("create_tutorial", { title: "create_tutorial" });
 });
 

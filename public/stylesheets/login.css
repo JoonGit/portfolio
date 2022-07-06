@@ -1,10 +1,9 @@
+@import url(./home.css);
 @font-face {
   font-family: abster;
   src: url(../font/abster-webfont.woff) format("woff");
 }
 
-* {
-  margin: 0;
-  border: 0;
-  box-sizing: border-box;
+.container .hero a {
+  display: block;
 }

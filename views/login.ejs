@@ -5,25 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day</title>
-    <link rel="stylesheet" href="/stylesheets/home.css" />
+
+    <!-- 구글 로그인 -->
+    <meta name="google-signin-scope" content="profile email" />
+    <meta
+      name="google-signin-client_id"
+      content="779915790020-fq9cv9gaioq15vmn0m83ug8jvmd2bih6.apps.googleusercontent.com"
+    />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="/stylesheets/login.css" />
   </head>
   <body>
     <div class="container">
       <div class="header">
         <h1><a href="/">Day</a></h1>
-        <div class="nav">
-          <ul>
-            <li><a href="#">글쓰기</a></li>
-            <li><a href="#">게시판</a></li>
-            <li><a href="#">마이 페이지</a></li>
-          </ul>
-        </div>
       </div>
       <div class="hero">
         <h2>로그인</h2>
-        <p>//</p>
-        <a href="/main">로그인</a>
-        <a href="/main">구글 로그인</a>
+        <a href="/main">로그인</a><br />
+        <a href="/main">구글 로그인</a><br />
+        <!-- <div
+          class="g-signin2"
+          data-onsuccess="onSignIn"
+          data-theme="dark"
+        ></div>
+        <button type="button" onclick="signOut">signOut</button>
+        <script src="/javascripts/google_login.js"></script> -->
         <a href="/main">카카오톡 로그인</a>
       </div>
     </div>

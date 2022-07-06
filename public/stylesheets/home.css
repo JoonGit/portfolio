@@ -67,12 +67,13 @@
 }
 
 .container .hero a {
+  display: block;
   background: none;
   border: 2px solid white;
   color: white;
   padding: 15px 20px;
   border-radius: 20px;
-  /* margin-top: 50px; */
+  margin-top: 30px;
   outline: none;
   cursor: pointer;
   transition: all 0.4s;
