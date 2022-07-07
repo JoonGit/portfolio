@@ -32,8 +32,9 @@ body {
   box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
 }
 
-/* .weakup {
-  display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-} */
+.container {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+}

@@ -25,52 +25,57 @@
             class="validation-form"
             novalidate
           >
-            <div class="col-md-8 mb-3">
-              <label for="root">기상시간</label>
-              <div class="wakeup">
-                <select class="mb-3 custom-select d-block w-50" id="wakeup">
-                  <script>
-                    let wakeup_hour = "";
-                    for (let i = 0; i < 24; i++) {
-                      wakeup_hour += `<option>${i + 1}시</option>`;
-                    }
-                    document.write(wakeup_hour);
-                  </script>
-                </select>
-                <select class="custom-select d-block w-50" id="root">
-                  <script>
-                    let wakeup_minute = "";
-                    for (let i = 0; i < 24; i++) {
-                      wakeup_minute += `<option>${i + 1}분</option>`;
-                    }
-                    document.write(wakeup_minute);
-                  </script>
-                </select>
+              <div class="col mb-3">
+                <label for="root">기상시간</label>
+                <div class="row wakeup">
+                  <select class="col-3 custom-select d-block w-10" id="wakeup_hour">
+                    <script>
+                      let wakeup_hour = "";
+                      for (let i = 0; i < 24; i++) {
+                        wakeup_hour += `<option>${i + 1}</option>`;
+                      }
+                      document.write(wakeup_hour);
+                    </script>                                      
+                  </select>
+                  <p class="col-1">시</p>
+                  <select class="col-3 custom-select d-block w-10" id="wakeup_minute">
+                    <script>
+                      let wakeup_minute = "";
+                      for (let i = 0; i < 60; i++) {
+                        wakeup_minute += `<option>${i + 1}</option>`;
+                      }
+                      document.write(wakeup_minute);
+                    </script>
+                  </select>
+                  <p class="col-1">분</p>
+                </div>
               </div>
-            </div>
-            <div class="col-md-8 mb-3">
-              <label for="sleep">기상시간</label>
-              <div class="sleep">
-                <select class="mb-3 custom-select d-block w-50" id="sleep">
-                  <script>
-                    let sleep_hour = "";
-                    for (let i = 0; i < 24; i++) {
-                      sleep_hour += `<option>${i + 1}시</option>`;
-                    }
-                    document.write(sleep_hour);
-                  </script>
-                </select>
-                <select class="custom-select d-block w-50" id="sleep">
-                  <script>
-                    let sleep_minute = "";
-                    for (let i = 0; i < 24; i++) {
-                      sleep_minute += `<option>${i + 1}분</option>`;
-                    }
-                    document.write(sleep_minute);
-                  </script>
-                </select>
+              <div class="col mb-3">
+                <label for="sleep">취침시간</label>
+                <div class="sleep row">
+                  <select class="col-3 custom-select d-block w-10" id="sleep_hour">
+                    <script>
+                      let sleep_hour = "";
+                      for (let i = 0; i < 24; i++) {
+                        sleep_hour += `<option>${i + 1}</option>`;
+                      }
+                      document.write(sleep_hour);
+                    </script>                                      
+                  </select>
+                  <p class="col-1">시</p>
+                  <select class="col-3 custom-select d-block w-10" id="sleep_minute">
+                    <script>
+                      let sleep_minute = "";
+                      for (let i = 0; i < 60; i++) {
+                        sleep_minute += `<option>${i + 1}</option>`;
+                      }
+                      document.write(sleep_minute);
+                    </script>
+                  </select>
+                  <p class="col-1">분</p>
+                </div>
               </div>
-            </div>
+          
             <div class="mb-4"></div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">
               가입 완료
@@ -78,33 +83,5 @@
           </form>
         </div>
       </div>
-      <footer class="my-3 text-center text-small">
-        <p class="mb-1">&copy; 2022 Day</p>
-      </footer>
     </div>
-    <script>
-      window.addEventListener(
-        "load",
-        () => {
-          const forms = document.getElementsByClassName("validation-form");
-
-          Array.prototype.filter.call(forms, (form) => {
-            form.addEventListener(
-              "submit",
-              function (event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-
-                form.classList.add("was-validated");
-              },
-              false
-            );
-          });
-        },
-        false
-      );
-    </script>
-  </body>
 </html>
