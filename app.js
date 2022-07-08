@@ -11,6 +11,7 @@ const usersRouter = require("./routes/users");
 const loginRouter = require("./routes/login");
 const membershipRouter = require("./routes/membership");
 const mainRouter = require("./routes/main");
+const planRouter = require("./routes/plan");
 
 // app
 const app = express();
@@ -35,6 +36,7 @@ app.use("/users", usersRouter);
 app.use("/login", loginRouter);
 app.use("/membership", membershipRouter);
 app.use("/main", mainRouter);
+app.use("/plan", planRouter);
 
 // -----------------------------------------------------------------------------------------------------------------------------------------------------
 
