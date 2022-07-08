@@ -5,50 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day</title>
-    <link rel="stylesheet" href="/stylesheets/create_tutorial.css" />
+    <link rel="stylesheet" href="/stylesheets/setting.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
-    /><script>
-      // let textarea = `
-      //   <div class="form-floating">
-      //     <label for="floatingTextarea2">Comments</label>
-      //     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-      //   </div>` 
-      // function createText(){          
-      //   document.write(textarea)    
-      // }
-      function click(){console.log("1");}
-    </script>
-  
+    />
   </head>
   <body>
     <div class="container">
       <div class="input-form-backgroud row">
         <div class="input-form col-md-6 mx-auto">
-          <h4 class="mb-3">게시글 작성</h4>
+          <h4 class="mb-3">기본 설정</h4>
 
           <form
             action="/membership/tutorial"
             method="post"
             class="validation-form"
             novalidate
-          >       
-</script>
-      
-
+          >
+          <input class="mb-1" type="button" value="+" onClick="plus()">
+          <input class="mb-1" type="button" value="-" onClick="minus()">
+          <div class="mb-1 form-floating">
+          <div id="textarea">         
+              <div id="ta"></div>
+              <script type="text/javascript" src="/javascripts/create_textarea.js"></script>
+            </div>
           </div>
-              
-            <div class="mb-4"></div>
+
+          <!-- 글 추가시 텍스트 날아가는거 저장하는 기능 추ㅏ-->
+          <div class="mb-4"></div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">
               작성 완료
             </button>
-          </form>
         </div>
       </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
