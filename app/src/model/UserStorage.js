@@ -19,6 +19,22 @@ class UserStorage {
     }, {});
     return newUsers;
   }
+
+  // 7 getUserInfo실행
+  static getUserInfo(id) {
+    // users 정보를 가진 객체
+    const users = this.#users;
+    // users 정보중 id의 문자의 인덱스 가져온다
+    const idx = users.id.indexOf(id);
+    // Object.keys(users) users의 키값의 배열화 시킨다 {id, password, name}
+    const userInfo = Object.keys(users).reduce((newUsers, info) => {
+      // userInfo는 idx 배열 순서에 있는 id, password, name을 가지게 된다
+      newUsers[info] = users[info][idx];
+      return newUsers;
+    }, {});
+
+    return userInfo;
+  }
 }
 
 module.exports = UserStorage;
