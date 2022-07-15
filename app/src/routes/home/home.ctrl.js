@@ -17,11 +17,11 @@ const output = {
 };
 
 const process = {
-  login: (req, res) => {
+  login: async (req, res) => {
     // 2.req.body 정보를 가진 유저 생성
     const user = new User(req.body);
     // 4. user.login실행
-    const response = user.login();
+    const response = await user.login();
     return res.json(response);
   },
   register: (req, res) => {

@@ -1,5 +1,5 @@
 "use strict";
-
+const fs = require("fs").promises;
 class UserStorage {
   static #users = {
     id: ["이", "재", "준"],
@@ -22,8 +22,16 @@ class UserStorage {
 
   // 7 getUserInfo실행
   static getUserInfo(id) {
-    // users 정보를 가진 객체
-    const users = this.#users;
+    return fs
+      .readFile("./src/database/users.json")
+      .then((data) => {
+        return this.#getUserInfo(data, id);
+      })
+      .catch((err) => console.error(err));
+  }
+  // users 정보를 가진 객체
+  static #getUserInfo(data, id) {
+    const users = JSON.parse(data);
     // users 정보중 id의 문자의 인덱스 가져온다
     const idx = users.id.indexOf(id);
     // Object.keys(users) users의 키값의 배열화 시킨다 {id, password, name}
@@ -32,9 +40,9 @@ class UserStorage {
       newUsers[info] = users[info][idx];
       return newUsers;
     }, {});
-
     return userInfo;
   }
+
   static save(userInfo) {}
 }
 

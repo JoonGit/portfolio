@@ -9,12 +9,12 @@ class User {
   }
 
   // 5 login실행
-  login() {
+  async login() {
     // 2번의 User의 body정보
     const client = this.body;
     // 6.UserStorage.getUserInfo 실행
     // getUserInfo의 정보중 id, password 만 가져온다
-    const { id, password } = UserStorage.getUserInfo(client.id);
+    const { id, password } = await UserStorage.getUserInfo(client.id);
 
     if (id) {
       if (id === client.id && password === client.password) {
