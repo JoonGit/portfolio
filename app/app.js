@@ -18,9 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", home);
 
-// const port = 3000;
-// app.listen(port, () => {
-//   console.log(`%d 서버 가동`, port);
-// });
+const port = 3000;
+app.listen(port, () => {
+  console.log(`%d 서버 가동`, port);
+});
 
 module.exports = app;

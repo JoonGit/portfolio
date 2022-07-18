@@ -7,17 +7,17 @@ const id = document.querySelector("#id"),
   registerBtn = document.querySelector("#button");
 
 registerBtn.addEventListener("click", register);
-
 function register() {
   if (!id.value) return alert("아이디를 입력해주십시오");
   if (password.value !== confirmPassword.value)
     return alert("비밀번호가 일치하지 않습니다");
+  if (name.value == "") return alert("이름을 입력해주십시오");
   const req = {
     id: id.value,
     name: name.value,
+    // 비밀번호 크립토
     password: password.value,
   };
-
   fetch("/register", {
     method: "POST",
     headers: {

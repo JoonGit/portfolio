@@ -7,6 +7,7 @@ const id = document.querySelector("#id"),
 loginBtn.addEventListener("click", login);
 
 function login() {
+  if (!id.value) return alert("아이디를 입력해주십시오");
   const req = {
     id: id.value,
     password: password.value,

@@ -1,16 +1,9 @@
 "use strict";
 const fs = require("fs").promises;
 class UserStorage {
-  static #users = {
-    id: ["이", "재", "준"],
-    password: ["1", "2", "3"],
-    name: ["이재준", "이재현", "이수형"],
-  };
-
-  //   데이터 은닉화
-  //   배열로 정보가 매개변수로 담긴다
-  static getUsers(...fields) {
-    const users = this.#users;
+  static #getUsers(data, isAll, fields) {
+    const users = JSON.parse(data);
+    if (isAll) return users;
     const newUsers = fields.reduce((newUsers, field) => {
       if (users.hasOwnProperty(field)) {
         newUsers[field] = users[field];
@@ -20,8 +13,20 @@ class UserStorage {
     return newUsers;
   }
 
+  //   데이터 은닉화
+  //   배열로 정보가 매개변수로 담긴다
+  static getUsers(isAll, ...fields) {
+    return fs
+      .readFile("./src/database/users.json")
+      .then((data) => {
+        return this.#getUsers(data, isAll, fields);
+      })
+      .catch((err) => console.error(err));
+  }
+
   // 7 getUserInfo실행
   static getUserInfo(id) {
+    //  users.json 읽은후 비동기 처리
     return fs
       .readFile("./src/database/users.json")
       .then((data) => {
@@ -43,7 +48,18 @@ class UserStorage {
     return userInfo;
   }
 
-  static save(userInfo) {}
-}
+  static async save(userInfo) {
+    const users = await this.getUsers(true);
+    if (users.id.includes(userInfo.id)) {
+      throw "이미 존재하는 아이디입니다.";
+    }
 
+    users.id.push(userInfo.id);
+    users.name.push(userInfo.name);
+    users.password.push(userInfo.password);
+    fs.writeFile("./src/database/users.json", JSON.stringify(users));
+    return { success: true };
+  }
+}
+console.log("tsts");
 module.exports = UserStorage;
