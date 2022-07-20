@@ -4,11 +4,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv"); // 환경변수
-dotenv.config();
+
 const app = express();
+dotenv.config();
 
 // 라우트
 const home = require("./src/routes/home");
+
+// 로그
+const logger = require("./src/config/logger");
 
 // 앱 세팅
 app.set("views", "./src/views");
@@ -20,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", home);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`%d 서버 가동`, port);
 });

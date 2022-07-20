@@ -6,7 +6,7 @@ class UserStorage {
       const query = "SELECT * FROM users WHERE id = ?;";
       db.query(query, [id], (err, data) => {
         if (err) reject(err);
-        resolve(data[0]);
+        else resolve(data[0]);
       });
     });
   }
@@ -19,19 +19,11 @@ class UserStorage {
         [userInfo.id, userInfo.name, userInfo.password],
         (err) => {
           if (err) reject(`${err}`);
-          console.log(resolve({ success: true }));
-          resolve({ success: true });
+          else resolve({ success: true });
         }
       );
     });
   }
-
-  //   users.id.push(userInfo.id);
-  //   users.name.push(userInfo.name);
-  //   users.password.push(userInfo.password);
-  //   fs.writeFile("./src/database/users.json", JSON.stringify(users));
-  //   return { success: true };
-  // }
 }
 
 module.exports = UserStorage;
