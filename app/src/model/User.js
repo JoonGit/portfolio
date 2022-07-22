@@ -3,7 +3,6 @@
 const UserStorage = require("./UserStorage");
 
 class User {
-  // 3.
   constructor(body) {
     this.body = body;
   }
@@ -14,7 +13,7 @@ class User {
       const user = await UserStorage.getUserInfo(client.id);
       if (user) {
         if (user.id === client.id && user.password === client.password) {
-          return { success: true };
+          return { success: true, user };
         }
         return { success: false, msg: "비밀번호가 틀렸습니다" };
       }

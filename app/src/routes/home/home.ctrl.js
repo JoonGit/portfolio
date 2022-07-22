@@ -1,6 +1,7 @@
 "use strict";
 const logger = require("../../config/logger");
 const User = require("../../model/User");
+const session = require("../../config/session");
 
 const output = {
   home: (req, res) => {
@@ -17,12 +18,18 @@ const output = {
     logger.info(`GET /register 304 "회원가입화면으로 이동"`);
     res.render("home/register");
   },
+
+  main: (req, res) => {
+    logger.info(`GET /main 304 "회원가입화면으로 이동"`);
+    res.render("home/main");
+  },
 };
 
 const process = {
   login: async (req, res) => {
     const user = new User(req.body);
     const response = await user.login();
+    session.createSession(req, user);
     const url = {
       method: "POST",
       path: "/login",
@@ -43,6 +50,13 @@ const process = {
     };
     log(response, url);
     return res.status(url.status).json(response);
+  },
+  main: (req, res) => {
+    console.log(req.session.user);
+  },
+  logout: (req, res) => {
+    session.destroySession(req);
+    console.log(session.session.user);
   },
 };
 

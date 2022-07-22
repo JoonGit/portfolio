@@ -15,7 +15,6 @@ function register() {
   const req = {
     id: id.value,
     name: name.value,
-    // 비밀번호 크립토
     password: password.value,
   };
   fetch("/register", {

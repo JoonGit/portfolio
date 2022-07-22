@@ -10,8 +10,11 @@ router.get("/", ctrl.output.home);
 
 router.get("/login", ctrl.output.login);
 router.get("/register", ctrl.output.register);
-// 1.로그인 시작
+router.get("/main", ctrl.output.main);
+
 router.post("/login", ctrl.process.login);
 router.post("/register", ctrl.process.register);
+router.post("/main", ctrl.process.main);
+router.post("/logout", ctrl.process.logout);
 
 module.exports = router;
